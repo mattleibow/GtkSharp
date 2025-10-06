@@ -1,19 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework Condition="'$(UseWorkload)' != 'true'">$(FrameworkParameter)</TargetFramework>
+    <TargetFramework Condition="'$(UseWorkload)' == 'true'">$(FrameworkParameter)-gtk</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>$(FrameworkParameter)</TargetFramework>
+    <RootNamespace>GtkNamespace</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GtkSharp" Version="3.24.24.*" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="**\*.glade" />
     <EmbeddedResource Include="**\*.glade">
       <LogicalName>%(Filename)%(Extension)</LogicalName>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="GtkSharp" Version="3.24.24.*" />
   </ItemGroup>
 
 </Project>

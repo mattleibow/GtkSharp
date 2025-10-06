@@ -1,51 +1,13 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <!-- GtkSharp target from the original nuget package -->
-  <Import Project="..\targets\GtkSharp.targets" />
-
   <!-- Register net8.0-gtk3.24 TFM -->
   <ItemGroup>
     <SupportedPlatform Include="gtk" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <_DefaultTargetPlatformVersion>@GTKSHARPVERSION@</_DefaultTargetPlatformVersion>
-  </PropertyGroup>
-
   <PropertyGroup>
     <TargetPlatformSupported>true</TargetPlatformSupported>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">$(_DefaultTargetPlatformVersion)</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">$(_DefaultGtkTargetPlatformVersion)</TargetPlatformVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <SdkSupportedTargetPlatformVersion Include="@GTKSHARPVERSION@" />
-  </ItemGroup>
-
-  <!-- Register GtkSharp runtime -->
-  <ItemGroup>
-    <KnownFrameworkReference
-      Include="GtkSharp"
-      TargetFramework="net@GTKSHARPNETVERSION@"
-      RuntimeFrameworkName="GtkSharp"
-      DefaultRuntimeFrameworkVersion="**FromWorkload**"
-      LatestRuntimeFrameworkVersion="**FromWorkload**"
-      TargetingPackName="GtkSharp.Ref"
-      TargetingPackVersion="**FromWorkload**"
-      RuntimePackNamePatterns="GtkSharp.Runtime"
-      RuntimePackRuntimeIdentifiers="win-x64;win-x86;linux-x64;linux-x86;osx-x64"
-      Profile="GTK"
-    />
-  </ItemGroup>
-
-  <!-- Reference GtkSharp runtime -->
-  <ItemGroup Condition=" '$(DisableImplicitFrameworkReferences)' != 'true' ">
-    <FrameworkReference
-      Include="GtkSharp"
-      IsImplicitlyDefined="true"
-      Pack="false"
-      PrivateAssets="All"
-    />
-  </ItemGroup>
 
   <!-- Project properties -->
   <PropertyGroup>
