@@ -19,7 +19,7 @@
       Include="Sdk\BundledVersions.in.targets"
       Destination="$(IntermediateOutputPath)BundledVersions.targets"
       Pack="true"
-      PackagePath="Sdk\BundledVersions.in.targets" />
+      PackagePath="Sdk\BundledVersions.targets" />
   </ItemGroup>
 
 </Project>

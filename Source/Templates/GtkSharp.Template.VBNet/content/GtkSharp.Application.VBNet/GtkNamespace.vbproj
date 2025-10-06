@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>$(FrameworkParameter)</TargetFramework>
+    <TargetFramework Condition="'$(UseWorkload)' != 'true'">$(FrameworkParameter)</TargetFramework>
+    <TargetFramework Condition="'$(UseWorkload)' == 'true'">$(FrameworkParameter)-gtk</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
