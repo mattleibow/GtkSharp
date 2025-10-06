@@ -4,10 +4,15 @@
   <ItemGroup>
     <SupportedPlatform Include="gtk" />
   </ItemGroup>
+
   <PropertyGroup>
     <TargetPlatformSupported>true</TargetPlatformSupported>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">$(_DefaultGtkTargetPlatformVersion)</TargetPlatformVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <SdkSupportedTargetPlatformVersion Include="$(_DefaultGtkTargetPlatformVersion)" />
+  </ItemGroup>
 
   <!-- Project properties -->
   <PropertyGroup>

@@ -1,7 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <ItemGroup>
-    <ProjectCapability Condition="'$(TargetPlatformIdentifier)' == 'gtk'" Include="GtkSharp" />
+    <ProjectCapability Include="GtkSharp" Condition="'$(TargetPlatformIdentifier)' == 'gtk'" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 <Project>
 
   <ItemGroup>
-    <ProjectCapability Condition="'$(TargetPlatformIdentifier)' == 'gtk'" Include="UseGtkSharp" />
+    <ProjectCapability Include="UseGtkSharp" Condition="'$(TargetPlatformIdentifier)' == 'gtk'" />
   </ItemGroup>
 
   <Import Project="Sdk.targets" Sdk="GtkSharp.Sdk" Condition="'$(TargetPlatformIdentifier)' == 'gtk'" />
